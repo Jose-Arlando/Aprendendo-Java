@@ -30,5 +30,6 @@ public class QualOMaior {
                 System.out.printf("%d, %d, %d", n3, n2, n1);
             }
         }
+    System.out.println("Obrigado!");
     }
 }
