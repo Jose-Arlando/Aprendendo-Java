@@ -1,3 +1,4 @@
+package primeiroprograma;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -50,15 +51,19 @@ public class Cadastro {
             } else if (op == 3){
                 System.out.println("Digite CPF da conta que deseja atualizar: ");
                 String cpfmudar = sc.nextLine();
+                boolean encontrado = false;
                 for (Conta p: lista){
                     if (cpfmudar.equals(p.cpf)){
                             System.out.println("Qual o novo nome? ");
                             String novonome = sc.nextLine();
                             p.nome = novonome;
                             System.out.println("MUDADO COM SUCESSO!");
-                    } else {
-                        System.out.println("CPF não encontrado");
+                            encontrado = true;
+                            break;
                     }
+                }
+                if (encontrado == false){
+                    System.out.println("CPF não encontrado");
                 }          
                 System.out.println("===== BEM VINDO NOVAMENTE AO BANCO =====");
                 System.out.println("1 - Adicionar conta");
@@ -73,9 +78,13 @@ public class Cadastro {
             } else if (op == 4){
                 System.out.println("Digite CPF da conta que deseja excluir: ");
                 String cpfremover = sc.nextLine();
-                lista.removeIf(p -> p.cpf.equals(cpfremover));
-
-                System.out.println("EXCLUIDO COM SUCESSO");
+                boolean removido = lista.removeIf(p -> cpfremover.equals(p.cpf));
+                if(removido){
+                    System.out.println("REMOVIDO COM SUCESSO");
+                } else {
+                    System.out.println("CPF NÃO ENCONTRADO");
+                }
+                
                 System.out.println("===== BEM VINDO NOVAMENTE AO BANCO =====");
                 System.out.println("1 - Adicionar conta");
                 System.out.println("2 - Concultar contas");
@@ -87,7 +96,7 @@ public class Cadastro {
                 sc.nextLine();
             }
         }
-        System.out.println("OBRIGADO POR ACESSAR NOSSO BANCO!");
+        System.out.println("OBRIGADO POR ACESSAR NOSSO CADASTRO!");
         sc.close();
     }
 }
