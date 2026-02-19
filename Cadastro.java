@@ -5,7 +5,7 @@ public class Cadastro {
     public static void main (String[] args){
         ArrayList <Conta> lista = new ArrayList<>(); 
         Scanner sc = new Scanner(System.in);
-        System.out.println("===== BEM VINDO AO BANCO =====");
+        System.out.println("===== BEM VINDO AO CADASTRO =====");
         System.out.println("1 - Adicionar conta");
         System.out.println("2 - Consultar contas");
         System.out.println("3 - Atualizar conta");
